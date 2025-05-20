@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Electro by DP - Modern Electronics Store</title>
+    <style>
+        /* Reset and base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #131921;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: #FF9900;
+            user-select: none;
+        }
+        nav {
+            display: flex;
+            gap: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        nav a {
+            color: white;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #FF9900;
+        }
+
+        /* btun */
+        .btun{}
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(90deg, #007BFF 0%, #fe1e1e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 0 0 65px 65px;
+            margin-bottom: 40px;
+            user-select: none;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero .btn {
+            background: linear-gradient(90deg, #fe1e1e 0%, #007BFF 100%);;
+            padding: 15px 35px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 40px;
+            color: #131921;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 15px -5px #273268;
+        }
+        .hero .btn:hover {
+            background-color: #890000;
+        }
+
+        /* Products grid */
+        .products {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: rgb(255, 255, 255);
+            border-radius: 15px;
+            box-shadow: 0 6px 18px -6px rgba(0,0,0,0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px -6px rgba(0,0,0,0.25);
+        }
+        .product-image {
+            width: 100%;
+            object-fit: contain;
+            height: 180px;
+            background: #ffffff;
+            padding: 20px;
+        }
+        .product-info {
+            padding: 20px 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #131921;
+            margin-bottom: 8px;
+        }
+        .product-description {
+            font-size: 0.9rem;
+            color: #555;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+        .product-price {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #00ff0d;
+            margin-bottom: 20px;
+        }
+        .product-btn {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            align-self: center;
+            width: 100%;
+            max-width: 180px;
+            user-select: none;
+        }
+        .product-btn:hover {
+            background-color: #b31200;
+        }
+        /* text box */
+        .search{
+            align-items: center;
+            display: flex;
+        }
+        .search input{
+        width: 320px;
+        height: 26px;
+        border-radius: 5px;
+        margin: 0 8px;
+        }
+
+        .bton{
+            border-radius: 4px;
+            background: #131921;
+            width: 54px;
+            height: 23px;
+            cursor: pointer;
+            color: white;
+            border: 2px solid white;
+            
+        }
+
+        .btn:hover{
+            background-color: #ff0000;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #131921;
+            color: #ccc;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+        footer a {
+            color: #FF9900;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            header {
+                text-align: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ElectroDP</div>
+        <nav>
+                <input type="text" name="" id="">
+                <button class="bton">Search</button>
+            </div>
+            <a href="#products">Products</a>
+            <a href="#deals">Deals</a>
+            <a href="about.html">About</a>
+            <a href="#contact">Contact</a>
+           
+        </nav>
+    </header>
+
+    <section class="hero" id="hero">
+        <h1>Upgrade Your Tech Today</h1>
+        <p>Discover the latest and greatest electronics at unbeatable prices. Fast shipping and customer satisfaction guaranteed.</p>
+        <button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+    </section>
+
+    <section id="products" class="products" aria-label="Electronic Products for Sale">
+        <article class="product-card">
+            <img src="s24.jpg" alt="Smartphone" class="product-image" loading="lazy" />
+             <!-- <img src="s24.jpg" alt=""> -->
+            <div class="product-info">
+                <h2 class="product-title">S24 Ultra</h2>
+                <p class="product-description">6.8″ display, Snapdragon 8 Gen 3 chipset, 5000 mAh battery, 1024 GB storage, 12 GB RAM, Corning Gorilla Armor.</p>
+                <div class="product-price">₹86,085</div>
+                <button class="product-btn" aria-label="Add Wireless Headphones to cart">Add to Cart</button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="book4pro.webp" alt="Smartphone" class="product-image" loading="lazy" />
+            <div class="product-info">
+                <h2 class="product-title">Galaxy Book 4 Pro</h2>
+                <p class="product-description">The Samsung Galaxy Book 4 Pro in 2024 is a well-designed, lightweight laptop with a premium build and an exceptional OLED touchscreen display.</p>
+                <div class="product-price">₹1,16,999</div>
+                <button class="product-btn" aria-label="Add Smartphone X100 to cart">Add to Cart</button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="buds3pro.webp" alt="Smartwatch" class="product-image" loading="lazy" />
+            <div class="product-info">
+                <h2 class="product-title">Buds 3 Pro</h2>
+                <p class="product-description">Exceptional audio quality, advanced noise cancellation, and seamless integration with Galaxy devices.</p>
+                <div class="product-price">₹19,999</div>
+                <button class="product-btn" aria-label="Add Smartwatch Pro to cart">Add to Cart</button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="smartwatch4.webp" alt="Laptop" class="product-image" loading="lazy" />
+            <div class="product-info">
+                <h2 class="product-title">Smartwatch 4</h2>
+                <p class="product-description">It boasts a Super AMOLED display, BioActive sensor for health tracking, and supports ECG, SpO₂, and body composition analysis.</p>
+                <div class="product-price">₹14,499</div>
+                <button class="product-btn" aria-label="Add Ultrabook Laptop 14 inch to cart">Add to Cart</button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="tabs9.webp" alt="Gaming Console" class="product-image" loading="lazy" />
+            <div class="product-info">
+                <h2 class="product-title">Tab S9</h2>
+                <p class="product-description">11-inch Dynamic AMOLED 2X display with a 120Hz refresh rate. Powered by the Snapdragon 8 Gen 2 processor, it offers up to 12GB RAM and 256GB storage.</p>
+                <div class="product-price">₹34,999</div>
+                <button class="product-btn" aria-label="Add GameBox Console to cart">Add to Cart</button>
+            </div>
+        </article>
+
+        <article class="product-card">
+            <img src="qled4kuhd.webp" alt="Drone" class="product-image" loading="lazy" />
+            <div class="product-info">
+                <h2 class="product-title">QLED 4K Ultra HD Smart TV Q7F</h2>
+                <p class="product-description">It delivers vibrant colors, sharp 4K resolution, and sleek design. It features Quantum Dot technology for 100% color volume and supports HDR10+ for enhanced contrast.</p>
+                <div class="product-price">₹49,999</div>
+                <button class="product-btn" aria-label="Add Pro Drone X2 to cart">Add to Cart</button>
+            </div>
+        </article>
+    </section>
+<!-- 
+    <div class="goto">
+        <a href="acci.html">Next</a>
+    </div> -->
+
+    <footer id="contact">
+        <p>© 2024 ElectroShop. All rights reserved.</p>
+        <p>
+            Contact us:
+            <a href="mailto:support@electroDP.com">support@electroDP.com</a> |
+            <a href="tel:+919876543210">+919876543210</a>
+        </p>
+        <p>
+            Follow us: 
+            <a href="#" aria-label="Facebook">Facebook</a> |
+            <a href="#" aria-label="Twitter">Twitter</a> |
+            <a href="https://www.instagram.com/only.your.dev/" aria-label="Instagram">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>
+
